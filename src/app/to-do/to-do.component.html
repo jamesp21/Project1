@@ -1,14 +1,17 @@
 <div class="boxed">
-  <h2>My To Do Items</h2>
-  <ul class="todoitems">
-   <li *ngFor="let ToDoPlaceholder of TheToDos"
-       (click)="onSelect(ToDoPlaceholder)"
-       [class.selected]="ToDoPlaceholder === selectedToDoItem">
-       <span class="badge">{{ToDoPlaceholder.title}}</span> {{ToDoPlaceholder.priority}}
-   </li>
-</ul>
+    <h2>My To Do Items</h2>
+    <div *ngIf="TheToDOs"> 
+        <ul class="todoitems">
+            <li *ngFor="let ToDoPlaceholder of TheToDOs"
+                (click)="onSelect(ToDoPlaceholder)"
+                [class.selected]="ToDoPlaceholder === selectedToDoItem">
+                <span class="badge">{{ToDoPlaceholder.title}}</span> {{ToDoPlaceholder.priority}}
+            </li>
+        </ul>
+    </div>
 
-</div>
+
+
 
 <div *ngIf="selectedToDoItem">
 
@@ -25,4 +28,27 @@
                <input [(ngModel)]="selectedToDoItem.detail">
        </label>
    </div>
+</div>
+<div>
+        <br />
+        <br />
+        <h3>Add new ToDo</h3>
+        <label>Title2:
+            <input #title2 />
+        </label>
+        <br />
+        <label>Priority2:
+            <input #priority2 />
+        </label>
+        <br />
+        <label>Detail2:
+            <input #detail2 />
+        </label>
+        <br />
+        <!-- (click) passes input values to addNew() and then clears the input -->
+        <button (click)="addNew(title2.value, priority2.value, detail2.value);
+             title2.value=''; priority2.value=''; detail2.value=''; ">
+            Click to add
+        </button>
+    </div>
 </div>

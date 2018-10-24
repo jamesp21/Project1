@@ -4,5 +4,14 @@
     Welcome to {{ title }}!
   </h1>
 </div>
-<app-calculate></app-calculate>
-<app-to-do></app-to-do>
+
+<nav>
+    <a routerLink="/">Home</a>
+  </nav>
+  <nav>
+    <a routerLink="/cats">Our Cats</a>
+  </nav>
+  <nav>
+    <a routerLink="/todo">To Do List</a>
+  </nav>
+<router-outlet></router-outlet>

@@ -1,0 +1,11 @@
+<div class="boxed">
+  <h2>My Cats</h2>
+  <div *ngIf="ourCats">
+     <ul class="catsClass">
+       <li class="catsLi" *ngFor="let eachCat of ourCats">
+         <span class="oneCat" >{{eachCat.name}}</span>
+       </li>
+     </ul>
+  </div>
+  </div>
+  
